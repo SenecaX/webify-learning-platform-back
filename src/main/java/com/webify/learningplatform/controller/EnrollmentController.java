@@ -11,27 +11,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.webify.learningplatform.domain.Course;
-import com.webify.learningplatform.repository.CourseRepository;
-
+import com.webify.learningplatform.domain.Enrollment;
+import com.webify.learningplatform.repository.EnrollmentRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4201")
 @RequestMapping("/private")
-public class CourseController {
-	
-	@Autowired
-	private CourseRepository courseRepository;
+public class EnrollmentController {
 
-	@RequestMapping(value ="/courses")
+	@Autowired
+	private EnrollmentRepository enrollmentRepository;
+	
+	@GetMapping("/enrollment")
 	@ResponseBody
-	public List<Course> getCourses() {
-		return (List<Course>) courseRepository.findAll();
+	public List<Enrollment> getEnrollements() {
+		return (List<Enrollment>) enrollmentRepository.findAll();
 	}
 
-	@PostMapping("/courses")
-	void addCourse(@RequestBody Course course) {
-		courseRepository.save(course);
+	@PostMapping("/enrollment")
+	void addEnrollment(@RequestBody Enrollment enrollment) {
+		enrollmentRepository.save(enrollment);
 	}
 }
-

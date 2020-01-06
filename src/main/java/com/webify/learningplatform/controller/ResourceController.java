@@ -13,9 +13,6 @@ import com.webify.learningplatform.service.GenericService;
 
 import java.util.List;
 
-/**
- * Created by nydiarra on 06/05/17.
- */
 @RestController
 @RequestMapping("/springjwt")
 public class ResourceController {

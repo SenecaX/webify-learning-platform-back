@@ -11,27 +11,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.webify.learningplatform.domain.Course;
-import com.webify.learningplatform.repository.CourseRepository;
-
+import com.webify.learningplatform.domain.UserQuizAnswer;
+import com.webify.learningplatform.repository.UserQuizAnswerRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4201")
 @RequestMapping("/private")
-public class CourseController {
+public class UserQuizAnswerController {
 	
 	@Autowired
-	private CourseRepository courseRepository;
-
-	@RequestMapping(value ="/courses")
+	private UserQuizAnswerRepository userQuizAnswerRepository;
+	
+	@GetMapping("/userQuizAnswers")
 	@ResponseBody
-	public List<Course> getCourses() {
-		return (List<Course>) courseRepository.findAll();
+	public List<UserQuizAnswer> getUsers() {
+		return (List<UserQuizAnswer>) userQuizAnswerRepository.findAll();
 	}
 
-	@PostMapping("/courses")
-	void addCourse(@RequestBody Course course) {
-		courseRepository.save(course);
+	@PostMapping("/userQuizAnswers")
+	void addRole(@RequestBody UserQuizAnswer userQuizAnswer) {
+		userQuizAnswerRepository.save(userQuizAnswer);
 	}
 }
 

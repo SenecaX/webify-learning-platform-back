@@ -4,11 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by nydiarra on 06/05/17.
- */
 @Entity
 @Table(name = "app_user")
 public class User {
@@ -89,4 +88,32 @@ public class User {
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", roles=" + roles + "]";
+	}
+
+	public User(Long id, String username, String password, String firstName, String lastName, List<Role> roles) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.roles = roles;
+	}
+	
+	public User() {}
+	
+//	@OneToMany(mappedBy = "studentEnrollment")
+//	private List<Enrollment> studentEnrollments = new ArrayList<Enrollment>();
+//	
+//	public void addCourseEnrollment(Enrollment studentEnrollment) {
+//		this.studentEnrollments.add(studentEnrollment);
+//		studentEnrollment.setStudentEnrollment(this);
+//	}
+    
+    
 }

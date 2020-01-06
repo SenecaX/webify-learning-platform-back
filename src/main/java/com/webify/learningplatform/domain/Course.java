@@ -112,29 +112,29 @@ public class Course {
 				+ ", created_on=" + created_on + ", img_url=" + img_url + ", user=" + user + "]";
 	}
 	
-//	@OneToMany(mappedBy = "course")
-//	private List<Module> courses = new ArrayList<Module>();
-//	
-//	public void addModule(Module module) {
-//		this.courses.add(module);
-//		module.setCourse(this);
-//	}
+	@OneToMany(mappedBy = "course")
+	private List<Module> courses = new ArrayList<Module>();
 	
-//	@OneToMany(mappedBy = "courseLecture")
-//	private List<Lecture> modules = new ArrayList<Lecture>();
-//	
-//	public void addCourseLecture(Lecture courseLecture) {
-//		this.modules.add(courseLecture);
-//		courseLecture.setCourseLecture(this);
-//	}
+	public void addModule(Module module) {
+		this.courses.add(module);
+		module.setCourse(this);
+	}
 	
-//	@OneToMany(mappedBy = "courseEnrollment")
-//	private List<Enrollment> courseEnrollments = new ArrayList<Enrollment>();
-//	
-//	public void addCourseEnrollment(Enrollment courseEnrollment) {
-//		this.courseEnrollments.add(courseEnrollment);
-//		courseEnrollment.setCourseEnrollment(this);
-//	}
+	@OneToMany(mappedBy = "courseLecture")
+	private List<Lecture> modules = new ArrayList<Lecture>();
+	
+	public void addCourseLecture(Lecture courseLecture) {
+		this.modules.add(courseLecture);
+		courseLecture.setCourseLecture(this);
+	}
+	
+	@OneToMany(mappedBy = "courseEnrollment")
+	private List<Enrollment> courseEnrollments = new ArrayList<Enrollment>();
+	
+	public void addCourseEnrollment(Enrollment courseEnrollment) {
+		this.courseEnrollments.add(courseEnrollment);
+		courseEnrollment.setCourseEnrollment(this);
+	}
 	
 	
 //	@OneToMany(mappedBy = "courseQuizAnswer")
@@ -145,12 +145,11 @@ public class Course {
 //		courseQuizAnswer.setCourseQuizAnswer(this);
 //	}	
 	
-//	@OneToMany(mappedBy = "courseQuiz")
-//	private List<Quiz> courseQuizzes = new ArrayList<Quiz>();
-//	
-//	public void addCourseQuiz(Quiz courseQuiz) {
-//		System.out.println("quizing " + courseQuiz);
-//		this.courseQuizzes.add(courseQuiz);
-//		courseQuiz.setCourseQuiz(this);
-//	}
+	@OneToMany(mappedBy = "courseQuiz")
+	private List<Quiz> courseQuizzes = new ArrayList<Quiz>();
+	
+	public void addCourseQuiz(Quiz courseQuiz) {
+		this.courseQuizzes.add(courseQuiz);
+		courseQuiz.setCourseQuiz(this);
+	}
 }
