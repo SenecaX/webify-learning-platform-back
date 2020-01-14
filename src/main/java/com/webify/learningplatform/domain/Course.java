@@ -36,6 +36,9 @@ public class Course {
 	@Column(name="img_url")
 	private String img_url;
 	
+	@Column(name="course_level")
+	private String course_level;
+	
 	public String getImg_url() {
 		return img_url;
 	}
@@ -95,23 +98,44 @@ public class Course {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	
 
-	public Course(Long course_id, String course_name, String description, Date created_on, String img_url, User user) {
+	public String getCourse_level() {
+		return course_level;
+	}
+
+	public void setCourse_level(String course_level) {
+		this.course_level = course_level;
+	}
+
+	
+	
+	public Course(Long course_id, String course_name, String description, String img_url, String course_level,
+			Date created_on, User user, List<Module> courses, List<Lecture> modules, List<Enrollment> courseEnrollments,
+			List<Quiz> courseQuizzes) {
 		super();
 		this.course_id = course_id;
 		this.course_name = course_name;
 		this.description = description;
-		this.created_on = created_on;
 		this.img_url = img_url;
+		this.course_level = course_level;
+		this.created_on = created_on;
 		this.user = user;
+		this.courses = courses;
+		this.modules = modules;
+		this.courseEnrollments = courseEnrollments;
+		this.courseQuizzes = courseQuizzes;
 	}
 
 	@Override
 	public String toString() {
 		return "Course [course_id=" + course_id + ", course_name=" + course_name + ", description=" + description
-				+ ", created_on=" + created_on + ", img_url=" + img_url + ", user=" + user + "]";
+				+ ", img_url=" + img_url + ", course_level=" + course_level + ", created_on=" + created_on + ", user="
+				+ user + ", courses=" + courses + ", modules=" + modules + ", courseEnrollments=" + courseEnrollments
+				+ ", courseQuizzes=" + courseQuizzes + "]";
 	}
-	
+
 	@OneToMany(mappedBy = "course")
 	private List<Module> courses = new ArrayList<Module>();
 	

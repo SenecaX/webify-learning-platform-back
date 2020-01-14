@@ -107,6 +107,14 @@ public class User {
 	
 	public User() {}
 	
+	@OneToMany(mappedBy = "user")
+	private List<Course> users = new ArrayList<Course>();
+	
+	public void addCourse(Course course) {
+		this.users.add(course);
+		course.setUser(this);
+	}
+	
 //	@OneToMany(mappedBy = "studentEnrollment")
 //	private List<Enrollment> studentEnrollments = new ArrayList<Enrollment>();
 //	

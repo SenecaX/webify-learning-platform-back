@@ -84,14 +84,14 @@ public class Quiz {
 				+ moduleQuiz + "]";
 	}
 //	
-//	@OneToMany(mappedBy = "quizQuizQuestion")
-//	private List<QuizQuestion> quizQuizQuestions = new ArrayList<QuizQuestion>();
-//	
-//	public void addCourseQuiz(QuizQuestion quizQuizQuestion) {
-//		this.quizQuizQuestions.add(quizQuizQuestion);
-//		quizQuizQuestion.setQuizQuizQuestion(this);
-//	}
-//	
+	@OneToMany(mappedBy = "quizQuizQuestion")
+	private List<QuizQuestion> quizQuizQuestions = new ArrayList<QuizQuestion>();
+	
+	public void addCourseQuiz(QuizQuestion quizQuizQuestion) {
+		this.quizQuizQuestions.add(quizQuizQuestion);
+		quizQuizQuestion.setQuizQuizQuestion(this);
+	}
+	
 	
 }
 
